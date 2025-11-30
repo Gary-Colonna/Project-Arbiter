@@ -1,349 +1,194 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Project Arbiter — 8 Week Prototype Timeline</title>
-  <style>
-    :root{
-      --bg:#0f1724; --card:#0b1220; --muted:#9aa4b2; --accent:#7dd3fc;
-      --accent-2:#60a5fa; --glass: rgba(255,255,255,0.03);
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", "Courier New", monospace;
-      --radius:12px;
-      --maxw:1100px;
-    }
-    html,body{height:100%}
-    body{
-      margin:0; font-family:Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-      background:linear-gradient(180deg,#071025 0%, #071827 60%); color:#e6eef6;
-      -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-      display:flex; align-items:flex-start; justify-content:center; padding:36px 18px;
-    }
-    .wrap{width:100%; max-width:var(--maxw); background:linear-gradient(180deg,var(--card), #071827 120%); border-radius:16px; box-shadow:0 10px 40px rgba(2,6,23,0.6); padding:28px; border:1px solid rgba(255,255,255,0.03)}
-    header{display:flex; gap:18px; align-items:center; margin-bottom:18px}
-    .logo{
-      width:64px; height:64px; border-radius:12px; background:linear-gradient(135deg,var(--accent),var(--accent-2));
-      display:flex; align-items:center; justify-content:center; font-weight:700; color:#04263b; font-family:var(--mono); font-size:20px;
-      box-shadow:0 6px 18px rgba(96,165,250,0.12), inset 0 -6px 18px rgba(255,255,255,0.06);
-    }
-    h1{font-size:20px; margin:0; letter-spacing:-0.2px}
-    p.lead{margin:6px 0 0; color:var(--muted); font-size:13px}
-    .grid{display:grid; grid-template-columns: 1fr 360px; gap:20px; margin-top:18px}
-    .card{background:var(--glass); border-radius:12px; padding:16px; border:1px solid rgba(255,255,255,0.02)}
-    .full{grid-column:1/-1}
-    table{width:100%; border-collapse:collapse; font-size:13px}
-    thead th{ text-align:left; padding:10px 12px; color:var(--muted); font-weight:600; font-size:12px; border-bottom:1px dashed rgba(255,255,255,0.03)}
-    tbody td{padding:12px; vertical-align:top; border-bottom:1px solid rgba(255,255,255,0.02)}
-    tbody tr:last-child td{border-bottom:0}
-    .phase{font-weight:700; color:#dbeafe}
-    .deliverable{color:var(--muted); font-size:13px}
-    .pill{display:inline-block; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,0.02); color:var(--muted); font-size:12px}
-    pre{background:rgba(2,6,23,0.6); padding:12px; border-radius:8px; overflow:auto; font-family:var(--mono); font-size:13px; color:#cfe9ff}
-    code{font-family:var(--mono); font-size:13px}
-    .meta{display:flex; gap:8px; flex-wrap:wrap; margin-top:8px}
-    .meta .m{background:rgba(255,255,255,0.02); padding:8px 10px; border-radius:8px; color:var(--muted); font-size:13px}
-    .actions{display:flex; gap:8px; margin-top:12px}
-    .btn{background:linear-gradient(180deg,var(--accent),var(--accent-2)); color:#04263b; border:none; padding:8px 12px; border-radius:10px; cursor:pointer; font-weight:700}
-    .btn.ghost{background:transparent; color:var(--accent); border:1px solid rgba(125,211,252,0.12)}
-    details{background:rgba(255,255,255,0.01); padding:10px; border-radius:8px; margin-top:10px}
-    summary{cursor:pointer; font-weight:700}
-    .foot{color:var(--muted); font-size:13px; margin-top:12px}
-    @media (max-width:920px){ .grid{grid-template-columns:1fr} .logo{width:56px;height:56px} }
-  </style>
-</head>
-<body>
-  <div class="wrap" role="main" aria-labelledby="title">
-    <header>
-      <div class="logo">PA</div>
-      <div>
-        <h1 id="title">Project Arbiter — 8 Week Prototype Timeline</h1>
-        <p class="lead">A single file timeline and prototype overview you can paste into GitHub as timeline.md or timeline.html. Copy the entire contents of this file into your repo.</p>
-      </div>
-    </header>
+# Project Arbiter — 8 Week Prototype Timeline
 
-    <div class="grid">
-      <section class="card full" aria-label="Sprint backlog">
-        <h2 style="margin:0 0 8px 0">Sprint Backlog</h2>
-        <p class="deliverable" style="margin:0 0 12px 0">Compact 8 week plan to deliver Gatekeeper, candidate models, jury voting, aggregator, calibration, adversarial tests, and pilot.</p>
+A single-file `timeline.md` you can paste into your GitHub repo. This file contains a compact sprint backlog, milestones, deliverables, runnable code stubs (indented code blocks so the whole file stays inside this single copy/paste block), immediate next steps, acceptance criteria, and tactical tips. Copy the entire contents of this block into `timeline.md`.
 
-        <div style="overflow:auto; border-radius:10px; padding:6px; background:linear-gradient(180deg, rgba(255,255,255,0.01), transparent)">
-          <table aria-describedby="backlog-desc">
-            <thead>
-              <tr>
-                <th style="width:80px">Week(s)</th>
-                <th style="width:160px">Phase</th>
-                <th>Key Tasks</th>
-                <th style="width:220px">Deliverable</th>
-                <th style="width:60px">Est</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>0</td>
-                <td class="phase">Kickoff and Design</td>
-                <td>Finalize scope; confirm model access; define anonymization rules; sign off architecture</td>
-                <td class="deliverable">Architecture blueprint and Gatekeeper API contract</td>
-                <td>2d</td>
-              </tr>
-              <tr>
-                <td>1</td>
-                <td class="phase">Scaffolding</td>
-                <td>Create repo skeleton; CI; env samples; logging hooks; local mocks</td>
-                <td class="deliverable">Repo skeleton, CI job, env sample</td>
-                <td>3d</td>
-              </tr>
-              <tr>
-                <td>1–2</td>
-                <td class="phase">Adapter Interfaces</td>
-                <td>Implement candidate and jury adapter interfaces; local mock adapters</td>
-                <td class="deliverable">Adapter interface stubs and mock adapters</td>
-                <td>4d</td>
-              </tr>
-              <tr>
-                <td>2–3</td>
-                <td class="phase">Candidate Integration</td>
-                <td>Integrate 3 candidate models; parallel calls; rate handling; raw output store</td>
-                <td class="deliverable">Working candidate adapters; raw output store</td>
-                <td>5d</td>
-              </tr>
-              <tr>
-                <td>3–4</td>
-                <td class="phase">Anonymization</td>
-                <td>Build anonymizer; fingerprint removal; formatting normalizer; tests</td>
-                <td class="deliverable">Anonymizer module and tests</td>
-                <td>4d</td>
-              </tr>
-              <tr>
-                <td>3–4</td>
-                <td class="phase">Jury Integration</td>
-                <td>Integrate 3 jury models; implement vote schema; collect rationales</td>
-                <td class="deliverable">Jury adapters and vote collection endpoint</td>
-                <td>4d</td>
-              </tr>
-              <tr>
-                <td>4–5</td>
-                <td class="phase">Aggregation</td>
-                <td>Implement weighted aggregator; tie rules; abstain threshold; fallback</td>
-                <td class="deliverable">Aggregator module and decision API</td>
-                <td>4d</td>
-              </tr>
-              <tr>
-                <td>4–5</td>
-                <td class="phase">Calibration</td>
-                <td>Create calibration dataset; map confidences to probabilities; harness</td>
-                <td class="deliverable">Calibration harness and mapping artifacts</td>
-                <td>3d</td>
-              </tr>
-              <tr>
-                <td>5–6</td>
-                <td class="phase">Sanity Filters</td>
-                <td>Implement fact checks; schema validators; hallucination heuristics</td>
-                <td class="deliverable">Sanity filter module and unit tests</td>
-                <td>3d</td>
-              </tr>
-              <tr>
-                <td>5–6</td>
-                <td class="phase">Adversarial Suite</td>
-                <td>Build adversarial prompt set; batch runner; metrics capture</td>
-                <td class="deliverable">Adversarial test suite and baseline metrics</td>
-                <td>4d</td>
-              </tr>
-              <tr>
-                <td>6</td>
-                <td class="phase">Logging and Audit</td>
-                <td>Implement append only event store; tamper hashes; export</td>
-                <td class="deliverable">Audit log store and export script</td>
-                <td>3d</td>
-              </tr>
-              <tr>
-                <td>6–7</td>
-                <td class="phase">Performance and Cost</td>
-                <td>Add caching; adaptive sampling; cost controls; quotas</td>
-                <td class="deliverable">Caching layer and sampling policy</td>
-                <td>3d</td>
-              </tr>
-              <tr>
-                <td>7</td>
-                <td class="phase">Pilot Prep</td>
-                <td>Draft runbook; human review flow; SLA draft; pilot checklist</td>
-                <td class="deliverable">Runbook, pilot checklist, SLA draft</td>
-                <td>2d</td>
-              </tr>
-              <tr>
-                <td>7–8</td>
-                <td class="phase">Pilot Run</td>
-                <td>Execute pilot; collect logs; run adversarial tests; iterate</td>
-                <td class="deliverable">Pilot report and metrics dashboard</td>
-                <td>5d</td>
-              </tr>
-              <tr>
-                <td>8</td>
-                <td class="phase">Handoff and Docs</td>
-                <td>Finalize README; API docs; deployment manifest; runbook</td>
-                <td class="deliverable">Final docs and deployment manifest</td>
-                <td>2d</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
+---
 
-        <div class="meta" aria-hidden="false">
-          <div class="m">Timeline: 8 weeks</div>
-          <div class="m">MVP: Gatekeeper + 3 candidates + 3 juries</div>
-          <div class="m">Primary languages: Python, FastAPI</div>
-        </div>
+## Summary
 
-        <div class="actions">
-          <button class="btn" onclick="copyAll()">Copy full file</button>
-          <button class="btn ghost" onclick="toggleCode()">Show code snippets</button>
-        </div>
+**Goal:** Build an MVP Gatekeeper that performs anonymized multi‑model candidate generation, jury voting, weighted aggregation, calibration, adversarial testing, and audit logging.  
+**Timeline:** **8 weeks** (focused) — adjustable to 12 weeks if you prefer a conservative pace.  
+**MVP:** Gatekeeper + 3 candidate models + 3 jury models + aggregator + audit log + adversarial suite.
 
-        <div id="snippets" style="display:none; margin-top:12px">
-          <details open>
-            <summary>Adapter interface stub</summary>
-            <pre><code># src/gatekeeper/adapter.py
-from typing import Dict, Any
+---
 
-class ModelAdapter:
-    def send_prompt(self, prompt: str, metadata: Dict[str, Any]) -> Dict[str, Any]:
-        \"\"\"Send prompt to model and return raw response dict.\"\"\"
-        raise NotImplementedError
+## Sprint Backlog
 
-    def parse_response(self, raw: Dict[str, Any]) -> Dict[str, Any]:
-        \"\"\"Normalize model output into canonical schema.\"\"\"
-        raise NotImplementedError
-</code></pre>
-          </details>
+| Week(s) | Phase | Key Tasks | Deliverable | Est |
+|---|---|---|---|---|
+| 0 | Kickoff and Design | Finalize scope; confirm model access; define anonymization rules | **Architecture blueprint and Gatekeeper API contract** | 2d |
+| 1 | Scaffolding | Create repo skeleton; CI; env samples; logging hooks; local mocks | **Repo skeleton, CI job, env sample** | 3d |
+| 1–2 | Adapter Interfaces | Implement candidate and jury adapter interfaces; local mock adapters | **Adapter interface stubs and mock adapters** | 4d |
+| 2–3 | Candidate Integration | Integrate 3 candidate models; parallel calls; rate handling; raw output store | **Working candidate adapters; raw output store** | 5d |
+| 3–4 | Anonymization | Build anonymizer; fingerprint removal; formatting normalizer; tests | **Anonymizer module and tests** | 4d |
+| 3–4 | Jury Integration | Integrate 3 jury models; implement vote schema; collect rationales | **Jury adapters and vote collection endpoint** | 4d |
+| 4–5 | Aggregation | Implement weighted aggregator; tie rules; abstain threshold; fallback | **Aggregator module and decision API** | 4d |
+| 4–5 | Calibration | Create calibration dataset; map confidences to probabilities; harness | **Calibration harness and mapping artifacts** | 3d |
+| 5–6 | Sanity Filters | Implement fact checks; schema validators; hallucination heuristics | **Sanity filter module and unit tests** | 3d |
+| 5–6 | Adversarial Suite | Build adversarial prompt set; batch runner; metrics capture | **Adversarial test suite and baseline metrics** | 4d |
+| 6 | Logging and Audit | Implement append only event store; tamper hashes; export | **Audit log store and export script** | 3d |
+| 6–7 | Performance and Cost | Add caching; adaptive sampling; cost controls; quotas | **Caching layer and sampling policy** | 3d |
+| 7 | Pilot Prep | Draft runbook; human review flow; SLA draft; pilot checklist | **Runbook, pilot checklist, SLA draft** | 2d |
+| 7–8 | Pilot Run | Execute pilot; collect logs; run adversarial tests; iterate | **Pilot report and metrics dashboard** | 5d |
+| 8 | Handoff and Docs | Finalize README; API docs; deployment manifest; runbook | **Final docs and deployment manifest** | 2d |
 
-          <details>
-            <summary>Anonymizer example</summary>
-            <pre><code># src/gatekeeper/anonymizer.py
-import re
+---
 
-def anonymize_response(text: str) -> str:
-    # remove explicit model tags and common vendor names
-    text = re.sub(r"
+## Milestones and Acceptance Criteria
+
+**MVP End to End**  
+- **Milestone:** Query → Candidate generation → Anonymized jury voting → Aggregation → Final answer.  
+- **Acceptance:** System returns a consensus answer with provenance and confidence.
+
+**Calibration and Safety**  
+- **Milestone:** Calibration harness maps model confidences to empirical probabilities.  
+- **Acceptance:** Reduced overconfidence on held‑out tests.
+
+**Adversarial Robustness**  
+- **Milestone:** Adversarial suite runs and produces baseline metrics.  
+- **Acceptance:** Documented failure modes and mitigation plan.
+
+**Auditability**  
+- **Milestone:** Append only audit log with tamper evidence.  
+- **Acceptance:** Every decision has stored candidate texts, votes, and final rationale.
+
+---
+
+## Files to Add to Repo
+
+**Suggested file layout**  
+- `timeline.md`  
+- `README.md`  
+- `docs/architecture.md`  
+- `src/gatekeeper/adapter.py`  
+- `src/gatekeeper/anonymizer.py`  
+- `src/gatekeeper/aggregator.py`  
+- `src/gatekeeper/gatekeeper.py`  
+- `tests/adversarial/`  
+
+---
+
+## Code Stubs and Examples
+
+> The code blocks below are indented so the entire markdown file remains inside this single copy/paste block. Paste the whole file into `timeline.md` and then copy each indented code block into the corresponding file in your repo when you scaffold the project.
+
+    # src/gatekeeper/adapter.py
+    from typing import Dict, Any
+
+    class ModelAdapter:
+        def send_prompt(self, prompt: str, metadata: Dict[str, Any]) -> Dict[str, Any]:
+            """Send prompt to model and return raw response dict."""
+            raise NotImplementedError
+
+        def parse_response(self, raw: Dict[str, Any]) -> Dict[str, Any]:
+            """Normalize model output into canonical schema."""
+            raise NotImplementedError
+
+    # src/gatekeeper/anonymizer.py
+    import re
+
+    def anonymize_response(text: str) -> str:
+        """
+        Remove explicit model tags and common vendor names,
+        normalize whitespace, and strip obvious fingerprints.
+        """
+        text = re.sub(r"
 
 ?model[:=]\s*\w+
 
 ?", "", text, flags=re.I)
-    text = re.sub(r"\b(GPT-?\d+|Claude|Gemini)\b", "", text, flags=re.I)
-    text = re.sub(r"\s{2,}", " ", text).strip()
-    return text
-</code></pre>
-          </details>
+        text = re.sub(r"\b(GPT-?\d+|Claude|Gemini)\b", "", text, flags=re.I)
+        text = re.sub(r"\s{2,}", " ", text).strip()
+        return text
 
-          <details>
-            <summary>Weighted aggregator sketch</summary>
-            <pre><code># src/gatekeeper/aggregator.py
-from collections import defaultdict
-from typing import List, Dict
+    # src/gatekeeper/aggregator.py
+    from collections import defaultdict
+    from typing import List, Dict
 
-def aggregate_votes(votes: List[Dict]) -> Dict:
-    # votes: list of {"candidate_id","vote","confidence"}
-    scores = defaultdict(float)
-    for v in votes:
-        weight = float(v.get("confidence", 0.0))
-        if v.get("vote") == "accept":
-            scores[v["candidate_id"]] += weight
-        elif v.get("vote") == "reject":
-            scores[v["candidate_id"]] -= weight * 0.5
-        # abstain contributes nothing
-    if not scores:
-        return {"winner": None, "scores": {}}
-    winner = max(scores.items(), key=lambda kv: kv[1])
-    return {"winner": winner[0], "score": winner[1], "scores": dict(scores)}
-</code></pre>
-          </details>
-        </div>
+    def aggregate_votes(votes: List[Dict]) -> Dict:
+        """
+        Simple weighted plurality aggregator.
+        votes: list of {"candidate_id","vote","confidence"}
+        vote: "accept" | "reject" | "abstain"
+        """
+        scores = defaultdict(float)
+        for v in votes:
+            weight = float(v.get("confidence", 0.0))
+            if v.get("vote") == "accept":
+                scores[v["candidate_id"]] += weight
+            elif v.get("vote") == "reject":
+                scores[v["candidate_id"]] -= weight * 0.5
+            # abstain contributes nothing
+        if not scores:
+            return {"winner": None, "scores": {}}
+        winner = max(scores.items(), key=lambda kv: kv[1])
+        return {"winner": winner[0], "score": winner[1], "scores": dict(scores)}
 
-      </section>
+    # src/gatekeeper/gatekeeper.py
+    from typing import List, Dict
+    from src.gatekeeper.adapter import ModelAdapter
+    from src.gatekeeper.anonymizer import anonymize_response
+    from src.gatekeeper.aggregator import aggregate_votes
 
-      <aside class="card" aria-label="Milestones">
-        <h3 style="margin:0 0 8px 0">Milestones</h3>
-        <ul style="margin:0 0 12px 18px; color:var(--muted)">
-          <li><strong>MVP End to End</strong> Query to consensus with provenance and confidence</li>
-          <li><strong>Calibration and Safety</strong> Reduced overconfidence on held out tests</li>
-          <li><strong>Adversarial Robustness</strong> Adversarial suite and documented failure modes</li>
-          <li><strong>Auditability</strong> Append only logs with tamper evidence</li>
-        </ul>
+    def gatekeeper_query(prompt: str, candidate_adapters: List[ModelAdapter], jury_adapters: List[ModelAdapter]) -> Dict:
+        """
+        Minimal end-to-end flow:
+        1) Generate candidates from candidate_adapters
+        2) Anonymize candidates and present to jury_adapters
+        3) Collect votes and aggregate
+        """
+        # 1. Generate candidates
+        candidates = []
+        for i, adapter in enumerate(candidate_adapters):
+            raw = adapter.send_prompt(prompt, {"role": "candidate", "id": f"c{i}"})
+            parsed = adapter.parse_response(raw)
+            candidates.append({"id": f"c{i}", "text": parsed.get("text", "")})
 
-        <h4 style="margin:12px 0 6px 0">Files to add to repo</h4>
-        <div class="pill">timeline.md</div>
-        <div class="pill">README.md</div>
-        <div class="pill">docs/architecture.md</div>
-        <div class="pill">src/gatekeeper/adapter.py</div>
-        <div class="pill">src/gatekeeper/anonymizer.py</div>
-        <div class="pill">src/gatekeeper/aggregator.py</div>
+        # 2. Anonymize and present to juries
+        votes = []
+        for j, jury in enumerate(jury_adapters):
+            for c in candidates:
+                anon = anonymize_response(c["text"])
+                raw_vote = jury.send_prompt(anon, {"role": "jury", "candidate_id": c["id"]})
+                parsed_vote = jury.parse_response(raw_vote)
+                votes.append(parsed_vote)
 
-        <div style="margin-top:12px">
-          <button class="btn" onclick="scrollToSnippets()">Jump to snippets</button>
-        </div>
+        # 3. Aggregate
+        result = aggregate_votes(votes)
+        return {"result": result, "candidates": candidates, "votes": votes}
 
-        <div class="foot">
-          <strong>Immediate next steps</strong>
-          <ol style="margin:8px 0 0 18px; color:var(--muted)">
-            <li>Create repo and paste this file as timeline.md</li>
-            <li>Add a README and basic CI that runs linters</li>
-            <li>Provision model API keys or set up local mocks</li>
-            <li>Start with local mocks to iterate quickly</li>
-          </ol>
-        </div>
-      </aside>
+---
 
-      <section class="card full" aria-label="Acceptance criteria and tips">
-        <h3 style="margin:0 0 8px 0">Acceptance criteria and tips</h3>
-        <p class="deliverable">Use these as pass/fail checks for each milestone</p>
+## Immediate Next Steps
 
-        <details>
-          <summary>Acceptance criteria</summary>
-          <ul style="margin:8px 0 0 18px; color:var(--muted)">
-            <li>System returns consensus answer with provenance and confidence</li>
-            <li>Calibration harness reduces overconfidence on held out tests</li>
-            <li>Adversarial suite produces baseline metrics and documented mitigations</li>
-            <li>Audit logs store candidate texts, votes, and final rationale</li>
-          </ul>
-        </details>
+1. **Create repo** and add this file as `timeline.md`.  
+2. **Add README** with a short project overview and quick start.  
+3. **Add docs/architecture.md** with a system diagram and Gatekeeper API contract.  
+4. **Provision model API keys** or set up local mocks for development.  
+5. **Add a simple CI job** that runs linters and unit tests on push.  
+6. **Start with local mocks** to iterate quickly and avoid API costs.
 
-        <details>
-          <summary>Quick tactical tips</summary>
-          <ul style="margin:8px 0 0 18px; color:var(--muted)">
-            <li>Return a provisional answer fast and finalize asynchronously</li>
-            <li>Use transparent abstention when consensus is weak</li>
-            <li>Cache frequent queries and use adaptive sampling to control cost</li>
-            <li>Keep anonymization rules aggressive to avoid fingerprint leakage</li>
-          </ul>
-        </details>
+---
 
-        <p class="foot">If you want, paste this entire file into your repo as <code>timeline.md</code> or <code>timeline.html</code>. It will render nicely on GitHub (GitHub supports inline HTML inside markdown files).</p>
-      </section>
-    </div>
+## Acceptance Criteria and Tactical Tips
 
-    <footer style="margin-top:18px; color:var(--muted); font-size:13px">
-      Last updated: <strong>8 week plan</strong> — copy and paste into your repo to get started.
-    </footer>
-  </div>
+**Acceptance criteria**  
+- System returns a consensus answer with provenance and confidence.  
+- Calibration harness reduces overconfidence on held out tests.  
+- Adversarial suite produces baseline metrics and documented mitigations.  
+- Audit logs store candidate texts, votes, and final rationale.
 
-  <script>
-    function toggleCode(){
-      const el = document.getElementById('snippets');
-      el.style.display = (el.style.display === 'none') ? 'block' : 'none';
-      window.scrollTo({top: document.body.scrollHeight, behavior: 'smooth'});
-    }
-    function scrollToSnippets(){
-      const el = document.getElementById('snippets');
-      el.style.display = 'block';
-      el.scrollIntoView({behavior:'smooth', block:'center'});
-    }
-    function copyAll(){
-      // Copy the entire HTML document text to clipboard for easy paste
-      const text = document.documentElement.outerHTML;
-      navigator.clipboard.writeText(text).then(()=> {
-        alert('Full HTML copied to clipboard. Paste into a file named timeline.html or timeline.md in your repo.');
-      }, ()=> {
-        alert('Copy failed. Select all and copy manually.');
-      });
-    }
-  </script>
-</body>
-</html>
+**Tactical tips**  
+- Return a provisional answer fast and finalize asynchronously if full consensus takes longer.  
+- Use transparent abstention when consensus confidence is low to build trust.  
+- Cache frequent queries and use adaptive sampling to control cost.  
+- Keep anonymization rules aggressive to avoid fingerprint leakage.  
+- Start with three candidate models and three jury models for the MVP and iterate weighting rules after adversarial testing.
+
+---
+
+## Notes
+
+- This file is intentionally self-contained so you can paste it directly into `timeline.md`.  
+- The indented code blocks are ready to be copied into the corresponding files under `src/gatekeeper/`.  
+- If you want, I can now generate a single-block `README.md` and `docs/architecture.md` in the same format for easy copy/paste.
